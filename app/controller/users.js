@@ -46,12 +46,7 @@ module.exports.controller = function(router) {
 var codes = function() {
   return uuid.v1();
 };
-var uuids = function() {
-  return uuid.v4();
-};
-var randomnumber = function() {
-  return Math.round((new Date().valueOf() * Math.random()))
-};
+
 
 /*==============================================
 ***   method to create new User in mysql  ***
