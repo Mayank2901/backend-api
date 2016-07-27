@@ -1,7 +1,5 @@
 # Building a RESTful API in Node and Express
 
-Using the new Express 4.0 Router to build RightFit API
-
 ## Requirements
 
 - Node and npm
