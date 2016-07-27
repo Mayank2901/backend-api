@@ -3,7 +3,7 @@ var User = mongoose.model('User');
 var Session = mongoose.model('Session');
 var jwt = require('jsonwebtoken');
 var uuid = require('node-uuid');
-var session = require('session');
+var session = require('./../libs/session');
 var passport = require('passport');
 
 var response = {
@@ -40,7 +40,7 @@ module.exports.controller = function(router) {
 
     router.route('/users/session')
       .post(methods.userLogin)
-      .delete(session.checkToken, methods.userLogout)
+      .delete(session.checkToken,methods.userLogout)
 }
 
 var codes = function() {

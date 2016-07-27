@@ -80,9 +80,9 @@ app.use('/', router);
 // 	} else {
 // 		// Workers can share any TCP connection
 // 		// In this case it is an HTTP server
-// 		var server = app.listen(port);
+ 		var server = app.listen(port);
 // 		var io = require('socket.io')(server);
-// 		console.log('API started, Assigned port : ' + port);
+ 		console.log('API started, Assigned port : ' + port);
 // 	}
 
 // }
