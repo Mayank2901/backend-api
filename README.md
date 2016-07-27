@@ -1,5 +1,3 @@
-# backend-api
-
 # Building a RESTful API in Node and Express
 
 Using the new Express 4.0 Router to build RightFit API
@@ -21,7 +19,3 @@ Test your API using [Postman](https://chrome.google.com/webstore/detail/postman-
 ##  How to get started!
 
  - run `npm start` from the home directory.
- 
-
-
-git@github.com:Mayank2901/backend-api.git

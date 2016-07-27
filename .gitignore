@@ -1,18 +1,2 @@
 node_modules
-# OS or Editor folders
-.DS_Store
-./**/.DS_Store
-._*
-Thumbs.db
-.cache
-.project
-.settings
-.tmproj
-*.esproj
-nbproject
-*.sublime-project
-*.sublime-workspace
-.idea
-
-secrets.yml
 npm-debug.log
