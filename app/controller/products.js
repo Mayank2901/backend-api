@@ -121,7 +121,7 @@ methods.addproduct=function(req,res){
               category:req.body.category,
               name:req.body.name,
               price:Number(req.body.price),
-              brand:req.body.brand,
+              brand:aareq.body.brand,
               instock:req.body.instock
             });
             newproduct.save(function(err, product) {
