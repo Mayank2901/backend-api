@@ -8,13 +8,6 @@ var development = require('./dev_env');
 var test = require('./test_env');
 var production = require('./prod_env');
 
-var defaults = {
-	root: path.normalize(__dirname + '/../'),
-	mail: {
-		mandrillKey: 'pwABzp6CtEQKsLD-lUNx7g',
-		from: 'system@caretocall.com'
-	}
-};
 
 /**
  * Expose

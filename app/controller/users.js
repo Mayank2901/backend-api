@@ -41,6 +41,9 @@ module.exports.controller = function(router) {
     router.route('/users/session')
       .post(methods.userLogin)
       .delete(session.checkToken,methods.userLogout)
+
+    router.route('/ping')
+      .get(session.checkToken,methods.getUser)
 }
 
 var codes = function() {
@@ -54,7 +57,9 @@ var codes = function() {
 methods.userSignup = function(req, res) {
   //Check for any errors.
   req.checkBody('email', 'Valid Email address is required.').notEmpty().isEmail();
-  req.checkBody('phone', 'phone cannot be empty.').notEmpty().isInt();
+  req.checkBody('password','Password is required, and should be between 8 to 80 characters.').notEmpty().len(8, 80);
+  req.checkBody('confirm_password', 'Confirm password is required, and should be same as password.').notEmpty().equals(req.body.password);
+  req.checkBody('name', 'name cannot be empty.').notEmpty();
 
   var errors = req.validationErrors(true);
   if (errors) {
@@ -90,7 +95,8 @@ methods.userSignup = function(req, res) {
 	        var newUser = new User({
 	          email: req.body.email,
 	          unique_code: codes(),
-	          password: req.body.password
+	          password: req.body.password,
+            name:req.body.name
 	        });
 	        newUser.save(function(err, user) {
 	          if (err) {
@@ -105,7 +111,7 @@ methods.userSignup = function(req, res) {
 	            var token = jwt.sign({
 	                email: req.body.email
 	            }, 'thisisareallylongandbigsecrettoken', {
-	                expiresInMinutes: 60 * 120
+	                expiresIn: 60 * 120
 	            });
 	            var newSession = new Session({
 	                user: user._id,
@@ -210,6 +216,27 @@ methods.userLogin = function(req, res, next) {
 /*********************
   userLogin ends
 *********************/
+
+/*********************
+  Get user
+*********************/
+methods.getUser = function(req,res){
+      NullResponseValue();
+  console.log("USER is here",req.user);
+  response.data = {
+    user : req.user
+  }
+  response.error = false
+  response.userMessage = '';
+  response.code = 200;
+  response.errors = null;
+  return SendResponse(res,200);
+};
+
+/*********************
+  getUser ends
+*********************/
+
 
 /*********************
         user logout

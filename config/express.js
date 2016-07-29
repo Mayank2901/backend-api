@@ -128,15 +128,6 @@ module.exports = function(app, passport) {
     //res.header('Access-Control-Allow-Credentials', true);
     //res.header('Access-Control-Allow-Origin', origin);
     // console.log(req.headers);
-    // if (req.headers['user-agent'] == 'Wget(linux)' || req.headers['user-agent'] == 'Dalvik/2.1.0 (Linux; U; Android 5.1; Google Nexus 5 - 5.1.0 - API 22 - 1080x1920 Build/LMY47D)') {
-    //   console.log('he is rahul the android developer');
-    //   res.status(500);
-    //   res.send({
-    //     error: true,
-    //     message: 'halva puri'
-    //   });
-    //   return
-    // }
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override,Authorization, Content-Type, Accept');
