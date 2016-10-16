@@ -24,6 +24,10 @@ var productSchema = new Schema({
 	instock:{
 		type:Boolean,
     	default: false
+	},
+	quantity:{
+		type:Number,
+		default:0
 	}
 });
 
