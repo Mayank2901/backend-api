@@ -18,9 +18,6 @@ var productSchema = new Schema({
 	brand:{
 		type:String
 	},
-	description:{
-		type:String
-	},
 	instock:{
 		type:Boolean,
     	default: false
