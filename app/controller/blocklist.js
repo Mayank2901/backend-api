@@ -74,7 +74,7 @@ methods.addnumber = function(req,res){
 }
 
 methods.getallnumbers = function(req,res){
-	Blocklist.findAll({
+	Blocklist.find({
 
 	})
 	.lean()
@@ -87,7 +87,7 @@ methods.getallnumbers = function(req,res){
 		    return SendResponse(res, 500);
 	  	}
 	  	else{
-	  		response.userMessage = 'NUmber added to blocklist successfully.'
+	  		response.userMessage = 'Blocklist Numbers sent.'
 	        response.data = {
 	           	block_list : list
 	        }
@@ -99,9 +99,9 @@ methods.getallnumbers = function(req,res){
 }
 
 methods.deletenumber = function(req,res){
-	req.checkBody('number', 'Number cannot be empty.').notEmpty();
+	req.checkBody('id', 'Id cannot be empty.').notEmpty();
 	Blocklist.findOneAndRemove({
-		number : req.body.number
+		_id : req.body.id
 	})
 	.lean()
 	.exec(function(err,list){
@@ -113,7 +113,7 @@ methods.deletenumber = function(req,res){
 		        return SendResponse(res, 500);
 	  		}
 	  		else{
-	  			response.userMessage = 'NUmber added to blocklist successfully.'
+	  			response.userMessage = 'NUmber from blocklist deleted successfully.'
 	            response.data = {
 	            	block_list : list
 	            }
